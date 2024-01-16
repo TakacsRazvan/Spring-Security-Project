@@ -16,4 +16,5 @@ public interface EventService {
 
     void deleteEvent(Event event);
     void deleteById(int id);
+    int idFromName(String name);
 }

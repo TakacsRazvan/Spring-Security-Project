@@ -28,7 +28,7 @@ public class SecurityConfig {
                     authConfig.requestMatchers(HttpMethod.GET, "/user").hasAuthority("ADMIN");
                     authConfig.requestMatchers(HttpMethod.GET, "/admin").hasAuthority("ADMIN");
                     authConfig.requestMatchers(HttpMethod.GET, "/developer").hasAuthority("DEVELOPER");
-                    authConfig.requestMatchers(HttpMethod.GET, "events/**").hasAnyAuthority("USER", "ADMIN");
+                    authConfig.requestMatchers(HttpMethod.GET, "/events/**").hasAnyAuthority("USER", "ADMIN");
                     authConfig.requestMatchers(HttpMethod.GET, "/users").hasAnyAuthority("ADMIN", "DEVELOPER");
                     authConfig.requestMatchers(HttpMethod.GET, "/authorities").hasAnyAuthority("ADMIN", "DEVELOPER");
                     authConfig.anyRequest().authenticated();
@@ -45,7 +45,8 @@ public class SecurityConfig {
                     logout.logoutSuccessUrl("/");
                     logout.deleteCookies("JSESSIONID");
                     logout.invalidateHttpSession(true);
-                });
+                })
+                .csrf(csrf -> csrf.disable());
 
         return http.build();
     }
