@@ -47,9 +47,6 @@ public class UserServiceImpl implements UserService{
                 .role((roleRepository.findByRole("USER")))
                 .build();
 
-
-
-
         return this.createUser(user);
     }
 
