@@ -14,8 +14,10 @@
         <a href="/register"><span sec:authorize="!isAuthenticated()">Register</span></a>
         <a class="header" href="/logout"><span sec:authorize="isAuthenticated()">Logout</span></a>
         <a class="header" href="/"><span sec:authorize="isAuthenticated()">Home</span></a>
+        <a class="header" href="/events"><span sec:authorize="isAuthenticated()">All Events</span></a>
         <a class="header" href="/users"><span sec:authorize="isAuthenticated() and hasAuthority('ADMIN')">Users</span></a>
-        <a class="header" href="/user"><span sec:authorize="isAuthenticated() and hasAuthority('USER')">User</span></a>
+        <a class="header" href="/events/create"><span sec:authorize="isAuthenticated() and hasAuthority('USER')">Create Events</span></a>
+        <a class="header" href="/events/delete"><span sec:authorize="isAuthenticated() and hasAuthority('USER')">Delete Events</span></a>
         <a class="header" href="/roles"><span sec:authorize="isAuthenticated() and hasAuthority('ADMIN')">Roles</span></a></p>
         <a class="header" href="/admin"><span sec:authorize="isAuthenticated() and hasAuthority('ADMIN')">Admin</span></a></p>
     <p></p>
